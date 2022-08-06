@@ -1,6 +1,11 @@
 function TaskItem() {
     return(
-        <p>this is a task</p>
+        <div>
+            <span>this is a task |</span>
+            <span> pending | </span>
+            <button>check</button>
+        </div>
+        
     )
 }
 

@@ -1,9 +1,14 @@
 import React from "react";
 import Header from './Header.js';
+import TaskItem from "./TaskItem.js";
 
 function ToDoList (){
     return(
-        <Header />
+        <div>
+            <Header />
+            <TaskItem />
+        </div>
+        
     )
 }
 
