@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './Header.js';
 import TaskItem from "./TaskItem.js";
-
+import CreateNewItem from "./CreateNewItem.js";
 function ToDoList (){
     const demoItem = {
         name: "Install React",
@@ -11,6 +11,7 @@ function ToDoList (){
     return(
         <div>
             <Header />
+            <CreateNewItem />
             <TaskItem {...demoItem}/>
         </div>
         
