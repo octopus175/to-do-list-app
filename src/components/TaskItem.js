@@ -1,9 +1,11 @@
-function TaskItem() {
+function TaskItem(props) {
+    // TODO: add style
+
     return(
         <div>
-            <span>this is a task |</span>
-            <span> pending | </span>
-            <span>02/08/2023 08:30pm | </span>
+            <span>{props.name}</span>
+            <span>{props.status}</span>
+            <span>{props.deadline}</span>
             <button>check</button>
         </div>
         
