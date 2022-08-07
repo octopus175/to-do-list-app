@@ -16,7 +16,7 @@ function App() {
     }
   return (
     <div className="App">
-      <ToDoList insertNewItem={insertNewItem} completeTaskItem={completeTaskItem}/>
+      <ToDoList insertNewItem={insertNewItem} completeTaskItem={completeTaskItem} items={items}/>
     </div>
   );
 }

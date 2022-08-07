@@ -1,20 +1,8 @@
-import React, {useState} from "react";
 import Header from './Header.js';
 import TaskItem from "./TaskItem.js";
 import CreateNewItem from "./CreateNewItem.js";
-function ToDoList (){
-    const [items, updateItems] = useState([])
-
-    const insertNewItem = (newTaskName, newTaskDeadline) => {
-        let newItem = {name: newTaskName, deadline: newTaskDeadline, status: "In progess"}
-        updateItems(items => items.concat(newItem))
-    }
-
-    const completeTaskItem = (taskId) => {
-        const temp = [...items];
-        temp.splice(taskId, 1);
-        updateItems(temp);
-    }
+function ToDoList ({insertNewItem, completeTaskItem, items}){
+    
     return(
         <div>
             <Header />
