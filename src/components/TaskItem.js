@@ -3,6 +3,7 @@ function TaskItem({taskItem, taskId, completeTaskItem}) {
 
     return(
         <div>
+            <span>{taskId}</span>
             <span>{taskItem.name}</span>
             <span>{taskItem.status}</span>
             <span>{taskItem.deadline}</span>
