@@ -12,7 +12,7 @@ function CreateNewItem({onCreateNewItem}){
         
         if (!e.target['validity'].valid) return;
         const dt= e.target['value'] + ':00Z';
-        setTaskDeadline(e.target.value);
+        setTaskDeadline(dt);
     }
     
     return (

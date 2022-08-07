@@ -21,6 +21,14 @@ function ToDoList (){
             <Header />
             <CreateNewItem onCreateNewItem = {onCreateNewItem}/>
             <TaskItem {...demoItem}/>
+            {
+                items.map((item, index) => {
+                    return(
+                        <TaskItem {...item} key={index}/>
+                    )
+                    
+                })
+            }
         </div>
         
     )
