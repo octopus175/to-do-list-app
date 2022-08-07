@@ -1,8 +1,10 @@
+import '../style/TaskItem.css'
+
 function TaskItem({taskItem, taskId, completeTaskItem}) {
     // TODO: add style
 
     return(
-        <div>
+        <div className="item-container">
             <span>{taskId}</span>
             <span>{taskItem.name}</span>
             <span>{taskItem.status}</span>
