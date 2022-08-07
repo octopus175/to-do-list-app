@@ -19,6 +19,11 @@ function ToDoList (){
         <div>
             <Header />
             <CreateNewItem insertNewItem= {insertNewItem}/>
+            <div>
+                <span>Task name</span>
+                <span>Status</span>
+                <span>Deadline</span>
+            </div>
             {
                 items.map((item, index) => {
                     return(
