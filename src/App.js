@@ -1,6 +1,9 @@
 import './App.css';
 import React, {useState} from "react";
 import ToDoList from './components/ToDoList.js'
+import Header from './components/Header.js';
+import CreateNewItem from "./components/CreateNewItem.js";
+
 function App() {
   const [items, updateItems] = useState([])
 
@@ -16,6 +19,8 @@ function App() {
     }
   return (
     <div className="App">
+      <Header />
+      <CreateNewItem insertNewItem= {insertNewItem}/>
       <ToDoList insertNewItem={insertNewItem} completeTaskItem={completeTaskItem} items={items}/>
     </div>
   );
