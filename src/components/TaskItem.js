@@ -1,12 +1,13 @@
-function TaskItem(props) {
+function TaskItem({taskItem, taskId, completeTaskItem}) {
     // TODO: add style
 
     return(
         <div>
-            <span>{props.name}</span>
-            <span>{props.status}</span>
-            <span>{props.deadline}</span>
-            <button>check</button>
+            <span>{taskId}</span>
+            <span>{taskItem.name}</span>
+            <span>{taskItem.status}</span>
+            <span>{taskItem.deadline}</span>
+            <button onClick={() => completeTaskItem(taskId)}>check</button>
         </div>
         
     )
