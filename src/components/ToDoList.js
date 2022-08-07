@@ -10,7 +10,7 @@ function ToDoList (){
     }
     const [items, updateItems] = useState([])
 
-    const onCreateNewItem = (newTaskName, newTaskDeadline) => {
+    const insertNewItem = (newTaskName, newTaskDeadline) => {
         let newItem = {name: newTaskName, deadline: newTaskDeadline, status: "New"}
         updateItems(items => items.concat(newItem))
         console.log(items)
@@ -19,7 +19,7 @@ function ToDoList (){
     return(
         <div>
             <Header />
-            <CreateNewItem onCreateNewItem = {onCreateNewItem}/>
+            <CreateNewItem onCreateNewItem = {insertNewItem}/>
             <TaskItem {...demoItem}/>
             {
                 items.map((item, index) => {

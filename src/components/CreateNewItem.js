@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function CreateNewItem({onCreateNewItem}){
+function CreateNewItem({insertNewItem}){
     const [taskName, setTaskName] = useState('');
     const [taskDeadline, setTaskDeadline] = useState('');
 
@@ -19,7 +19,7 @@ function CreateNewItem({onCreateNewItem}){
         <div>
             <input placeholder="Create new task" id="name" onChange={onTaskNameChange}></input>
             <input type="datetime-local" id="deadline" onChange={onTaskDeadlineChange} value={(taskDeadline || '').toString().substring(0, 16)}></input>
-            <button onClick={() => onCreateNewItem(taskName, taskDeadline)}>confirm</button>
+            <button onClick={() => insertNewItem(taskName, taskDeadline)}>confirm</button>
         </div>
     )
 }
