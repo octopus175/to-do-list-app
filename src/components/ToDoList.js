@@ -3,13 +3,7 @@ import TaskItem from "./TaskItem.js";
 function ToDoList ({completeTaskItem, items}){
     
     return(
-        <div>
-            
-            <div>
-                <span>Task name</span>
-                <span>Status</span>
-                <span>Deadline</span>
-            </div>
+        <div className='list-container'>
             {
                 items.map((item, index) => {
                     return(

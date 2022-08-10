@@ -11,8 +11,7 @@ function CreateNewItem({insertNewItem}){
     const onTaskDeadlineChange = e => {
         
         if (!e.target['validity'].valid) return;
-        const dt= e.target['value'] + ':00Z';
-        setTaskDeadline(dt);
+        setTaskDeadline(e.target['value']);
     }
     
     return (

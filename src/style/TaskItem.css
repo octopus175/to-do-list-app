@@ -1,4 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 .item-container {
-    display: flex;
-    gap: 30px;
+    display: inline-flex;
+    align-items: center;
+    border: solid grey 1px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    gap: 10%
+
+}
+
+.task-name{
+    font-size: 32px;
+    width: 50%;
+}
+
+.task-status{
+    font-size: 20px;
+}
+
+.task-deadline{
+    font-size: 20px;
+}
+
+.complete-button{
+    font-size: 16px;
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #27ae60;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    box-sizing: border-box;
+    color: #fff;
+    display: inline-block;
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 13px 20px;
+    text-align: center;
 }
