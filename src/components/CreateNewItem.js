@@ -9,16 +9,19 @@ function CreateNewItem({insertNewItem}){
     }
     
     const onTaskDeadlineChange = e => {
-        
         if (!e.target['validity'].valid) return;
         setTaskDeadline(e.target['value']);
+    }
+    const resetItemState = () => {
+        setTaskName('');
+        setTaskDeadline('');
     }
     
     return (
         <div>
-            <input placeholder="Create new task" id="name" onChange={onTaskNameChange}></input>
+            <input placeholder="Create new task" id="name" onChange={onTaskNameChange} value={taskName}></input>
             <input type="datetime-local" id="deadline" onChange={onTaskDeadlineChange} value={(taskDeadline || '').toString().substring(0, 16)}></input>
-            <button onClick={() => insertNewItem(taskName, taskDeadline)}>confirm</button>
+            <button onClick={() => {insertNewItem(taskName, taskDeadline); resetItemState()}}>confirm</button>
         </div>
     )
 }
