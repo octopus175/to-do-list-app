@@ -3,3 +3,24 @@
     flex-direction: column;
     width: 100%;
 }
+
+.fieldname-container {
+    display: inline-flex;
+    padding: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.taskname-fieldname{
+    flex-basis: 925px;
+}
+
+.other-fieldname{
+    flex: 1 1;
+}
+
+.action-fieldname{
+    width: 150px;
+    text-align: center;
+}

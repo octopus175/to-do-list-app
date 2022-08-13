@@ -22,11 +22,7 @@ function App() {
     <div className="App">
       <Header />
       <CreateNewItem insertNewItem= {insertNewItem}/>
-      <div className='column-name-text'>
-                <span>Task name</span>
-                <span>Status</span>
-                <span>Deadline</span>
-      </div>
+      {/*<FieldName />*/}
       <ToDoList insertNewItem={insertNewItem} completeTaskItem={completeTaskItem} items={items}/>
     </div>
   );

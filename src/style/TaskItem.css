@@ -7,21 +7,22 @@
     padding: 20px;
     margin: 5px;
     font-family: 'Ubuntu', sans-serif;
-    gap: 10%
 
 }
 
 .task-name{
     font-size: 32px;
-    width: 50%;
+    flex-basis: 925px;
 }
 
 .task-status{
     font-size: 20px;
+    flex: 1 1;
 }
 
 .task-deadline{
     font-size: 20px;
+    flex: 1 1;
 }
 
 .complete-button{
@@ -42,4 +43,5 @@
     overflow: hidden;
     padding: 13px 20px;
     text-align: center;
+    width: 150px;
 }
