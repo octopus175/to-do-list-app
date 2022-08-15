@@ -19,12 +19,21 @@ function CreateNewItem({insertNewItem}){
         setTaskName('');
         setTaskDeadline('');
     }
+
+    const onSubmitNewTask = () => {
+        if (taskName === '' || taskDeadline === '') {
+            window.alert("Input field empty");
+        } else {
+            insertNewItem(taskName, taskDeadline);
+            resetItemState();
+        }   
+    }
     
     return (
         <div className="newitem-container">
             <input className="taskname-input" placeholder="Create new task" id="name" onChange={onTaskNameChange} value={taskName}></input>
             <input className="datetime-picker" type="datetime-local" id="deadline" onChange={onTaskDeadlineChange} value={(taskDeadline || '').toString().substring(0, 16)}></input>
-            <Button variant="outline-dark" size='lg' onClick={() => {insertNewItem(taskName, taskDeadline); resetItemState()}}>Add task</Button>
+            <Button variant="outline-dark" size='lg' onClick={() => {onSubmitNewTask()}}>Add task</Button>
         </div>
     )
 }

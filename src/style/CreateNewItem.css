@@ -4,7 +4,8 @@
     font-size: 20px;
     padding: 8px 20px;
     background:transparent;
-    transition: 0.5s ease-in-out;
+    transition: width 1.0s ease-in-out;
+    width: 300px
 }
 .taskname-input::placeholder{
     transition: 0.5s;
@@ -12,6 +13,7 @@
 .taskname-input:focus{
     outline: none;
     color: black;
+    width: 500px;
 }
 .taskname-input:focus::placeholder{
     color: transparent;
@@ -33,7 +35,7 @@
 .newitem-container{
     display: inline-flex;
     width: 100%;
-    gap: 5%;
+    gap: 2%;
     margin: 20px;
     justify-content: center;
 }

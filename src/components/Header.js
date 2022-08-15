@@ -1,3 +1,5 @@
+import '../style/Header.css'
+
 function Header() {
     return(
         <h1>To Do List App</h1>
