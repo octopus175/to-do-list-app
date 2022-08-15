@@ -34,7 +34,7 @@
 .newitem-container{
     display: inline-flex;
     width: 100%;
-    justify-content: space-evenly;
+    gap: 5%;
     margin: 20px;
-    align-items: center;
+    justify-content: center;
 }

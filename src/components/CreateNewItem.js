@@ -1,5 +1,7 @@
 import { useState } from "react";
-import '../style/CreateNewItem.css'
+import '../style/CreateNewItem.css';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CreateNewItem({insertNewItem}){
     const [taskName, setTaskName] = useState('');
@@ -22,7 +24,7 @@ function CreateNewItem({insertNewItem}){
         <div className="newitem-container">
             <input className="taskname-input" placeholder="Create new task" id="name" onChange={onTaskNameChange} value={taskName}></input>
             <input className="datetime-picker" type="datetime-local" id="deadline" onChange={onTaskDeadlineChange} value={(taskDeadline || '').toString().substring(0, 16)}></input>
-            <button className="btn btn-primary" onClick={() => {insertNewItem(taskName, taskDeadline); resetItemState()}}>confirm</button>
+            <Button variant="outline-dark" size='lg' onClick={() => {insertNewItem(taskName, taskDeadline); resetItemState()}}>Add task</Button>
         </div>
     )
 }
