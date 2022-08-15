@@ -22,7 +22,7 @@ function CreateNewItem({insertNewItem}){
         <div className="newitem-container">
             <input className="taskname-input" placeholder="Create new task" id="name" onChange={onTaskNameChange} value={taskName}></input>
             <input className="datetime-picker" type="datetime-local" id="deadline" onChange={onTaskDeadlineChange} value={(taskDeadline || '').toString().substring(0, 16)}></input>
-            <button className="confirm-button" onClick={() => {insertNewItem(taskName, taskDeadline); resetItemState()}}>confirm</button>
+            <button className="btn btn-primary" onClick={() => {insertNewItem(taskName, taskDeadline); resetItemState()}}>confirm</button>
         </div>
     )
 }
