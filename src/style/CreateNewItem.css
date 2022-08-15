@@ -1,0 +1,40 @@
+.taskname-input{
+    border: 0;
+    border-bottom: 2px solid rgb(184, 184, 184);
+    font-size: 20px;
+    padding: 8px 20px;
+    background:transparent;
+    transition: 0.5s ease-in-out;
+    color: rgb(184, 184, 184);
+}
+.taskname-input::placeholder{
+    transition: 0.5s;
+}
+.taskname-input:focus{
+    border-bottom: 2px solid black;
+    outline: none;
+    color: black;
+}
+.taskname-input:focus::placeholder{
+    color: transparent;
+}
+
+.datetime-picker{
+    border: 0;
+    font-size: 20px;
+    padding: 8px 20px;
+    border-bottom: 2px solid ;
+    background: transparent;
+}
+
+.datetime-picker:focus{
+    outline: none;
+}
+
+.newitem-container{
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 20px;
+    align-items: center;
+}

@@ -11,8 +11,9 @@
 }
 
 .task-name{
-    font-size: 32px;
+    font-size: 26px;
     flex-basis: 925px;
+    flex: 1 1;
 }
 
 .task-status{
