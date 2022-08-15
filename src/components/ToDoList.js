@@ -9,7 +9,7 @@ function ToDoList ({completeTaskItem, items}){
             <span className="taskname-fieldname">Task name</span>
             <span className='other-fieldname'>Status</span>
             <span className='other-fieldname'>Deadline</span>
-            <span className='action-fieldname'>...</span>
+            <span className='action-fieldname'>Actions</span>
           </div>
         )
     }
