@@ -1,7 +1,6 @@
 import { useState } from "react";
 import '../style/CreateNewItem.css';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CreateNewItem({insertNewItem}){
     const [taskName, setTaskName] = useState('');

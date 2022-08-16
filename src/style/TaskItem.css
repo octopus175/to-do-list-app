@@ -41,5 +41,9 @@
     overflow: hidden;
     padding: 13px 20px;
     text-align: center;
-    width: 150px;
+}
+
+.delete-button{
+    background: transparent;
+    border: none;
 }
