@@ -45,4 +45,11 @@
 .delete-button{
     background: transparent;
     border: none;
+    font-size: 2em;
+}
+
+.action-selector{
+    display: flex;
+    width: 200px;
+    gap: 30px;
 }
