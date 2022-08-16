@@ -5,7 +5,7 @@ function TaskItem({taskItem, taskId, deleteTaskItem, completeTaskItem}) {
     const deadline = taskItem.deadline.replace('T',' ').replace('Z',' ');
 
     return(
-        <div className="item-container">
+        <>
             <span className='task-name' style={{ textDecoration: taskItem.isCompleted ? "line-through" : "" }}>{taskItem.name}</span>
             {taskItem.isCompleted ? (<span className='task-status'>Complete</span>):(<span className='task-status'>In progess</span>)}
             <span className='task-deadline'>{deadline}</span>
@@ -15,7 +15,7 @@ function TaskItem({taskItem, taskId, deleteTaskItem, completeTaskItem}) {
                     <i className="bi bi-trash3" onClick={() => deleteTaskItem(taskId)}></i>
                 </button>
             </div>
-        </div>
+        </>
         
     )
 }

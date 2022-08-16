@@ -24,3 +24,12 @@
 .action-fieldname{
     width: 200px;
 }
+.item-container {
+    display: inline-flex;
+    align-items: center;
+    border: solid grey 1px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 5px;
+    font-family: 'Ubuntu', sans-serif;
+}
