@@ -1,6 +1,6 @@
 import '../style/ToDoList.css'
 import TaskItem from "./TaskItem.js";
-function ToDoList ({completeTaskItem, items}){
+function ToDoList ({deleteTaskItem, items}){
     
     function FieldName() {
         return(
@@ -19,7 +19,7 @@ function ToDoList ({completeTaskItem, items}){
             {
                 items.map((item, index) => {
                     return(
-                        <TaskItem taskItem={item} key={index} taskId={index} completeTaskItem={completeTaskItem}/>
+                        <TaskItem taskItem={item} key={index} taskId={index} deleteTaskItem={deleteTaskItem}/>
                     )
                     
                 })

@@ -12,7 +12,7 @@ function App() {
       updateItems(items => items.concat(newItem))
   }
 
-  const completeTaskItem = (taskId) => {
+  const deleteTaskItem = (taskId) => {
       const temp = [...items];
       temp.splice(taskId, 1);
       updateItems(temp);
@@ -22,8 +22,7 @@ function App() {
     <div className="App">
       <Header />
       <CreateNewItem insertNewItem= {insertNewItem}/>
-      {/*<FieldName />*/}
-      <ToDoList insertNewItem={insertNewItem} completeTaskItem={completeTaskItem} items={items}/>
+      <ToDoList insertNewItem={insertNewItem} deleteTaskItem={deleteTaskItem} items={items}/>
     </div>
   );
 }
