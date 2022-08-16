@@ -8,8 +8,8 @@ function App() {
   const [items, updateItems] = useState([])
 
   const insertNewItem = (newTaskName, newTaskDeadline) => {
-      const newItem = {name: newTaskName, deadline: newTaskDeadline, isCompleted: false}
-      updateItems(itemArr => itemArr.concat(newItem))
+      const newItem = {name: newTaskName, deadline: newTaskDeadline, isCompleted: false};
+      updateItems(itemArr => itemArr.concat(newItem));
   }
 
   const deleteTaskItem = (taskId) => {
