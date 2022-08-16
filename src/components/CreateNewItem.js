@@ -21,7 +21,7 @@ function CreateNewItem({insertNewItem}){
 
     const onSubmitNewTask = () => {
         if (taskName === '' || taskDeadline === '') {
-            window.alert("Input field empty");
+            window.alert("Item info incomplete");
         } else {
             insertNewItem(taskName, taskDeadline);
             resetItemState();
