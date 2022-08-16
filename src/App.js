@@ -9,7 +9,7 @@ function App() {
 
   const insertNewItem = (newTaskName, newTaskDeadline) => {
       let newItem = {name: newTaskName, deadline: newTaskDeadline, status: "In progess"}
-      updateItems(items => items.concat(newItem))
+      updateItems(itemArr => itemArr.concat(newItem))
   }
 
   const deleteTaskItem = (taskId) => {
