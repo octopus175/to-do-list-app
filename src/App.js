@@ -8,7 +8,7 @@ function App() {
   const [items, updateItems] = useState([])
 
   const insertNewItem = (newTaskName, newTaskDeadline) => {
-      let newItem = {name: newTaskName, deadline: newTaskDeadline, status: "In progess"}
+      let newItem = {name: newTaskName, deadline: newTaskDeadline, isCompleted: false}
       updateItems(itemArr => itemArr.concat(newItem))
   }
 
@@ -17,12 +17,18 @@ function App() {
       temp.splice(taskId, 1);
       updateItems(temp);
   }
+
+  const completeTaskItem = (taskId) => {
+    const newItemArr = [...items];
+    newItemArr[taskId].isCompleted = true;
+    updateItems(newItemArr);
+  }
   
   return (
     <div className="App">
       <Header />
       <CreateNewItem insertNewItem= {insertNewItem}/>
-      <ToDoList insertNewItem={insertNewItem} deleteTaskItem={deleteTaskItem} items={items}/>
+      <ToDoList insertNewItem={insertNewItem} deleteTaskItem={deleteTaskItem} completeTaskItem={completeTaskItem} items={items}/>
     </div>
   );
 }
