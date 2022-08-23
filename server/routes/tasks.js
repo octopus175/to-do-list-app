@@ -2,10 +2,42 @@ const task = require("../models/task");
 
 const express = require("express");
 const { default: mongoose } = require("mongoose");
+const { update } = require("../models/task");
 const router = express.Router();
 
+const checkRecordId = async(req, res, next) =>  {
+    //secuirty check
+    
+    if (mongoose.Types.ObjectId.isValid(req.body.taskId)) {
+        try {
+            const checkExistance = await task.exists({_id: req.body.taskId});
+            if (checkExistance) {
+                return next();
+            } else {
+                res.send("record not found");
+            }
+        } catch (error) {
+            res.send(error);
+        }
+    } else {
+        res.send("not a valid object id");
+        
+    }
+}
+
+const checkRequestData = async(req, res, next) => {
+    //TO DO: sanitize request body
+    let security_check = true;
+    //perform check on req.body
+    if (security_check) {
+        return next();
+    } else {
+        res.send("request body fail to pass security check");
+    }
+}
+
 //retrieve task list
-router.get('/', async (req, res, next) => {
+router.get('/getTasks', async (req, res, next) => {
     try {
         //retrieve all data using mongoose
         const allTask = await task.find();
@@ -23,7 +55,9 @@ router.post('/addTask', checkRequestData, async (req, res, next) => {
     
     //if data pass check use mongoose to upload to db
     try {
+        console.log("Creating new task, returning attribute:", req.body);
         const newTask = await new task(req.body).save();
+        res.send(newTask._id);
     } catch (error) {
         console.log("Cannot create new task, returning error:", error);
         res.send(error);
@@ -39,7 +73,11 @@ router.post('/updateTask', checkRecordId, checkRequestData, async (req, res, nex
 
     //use mongoose to update
     try {
-        const updateTask = await task.findByIdAndUpdate(req.body.taskId);
+        const updateTask = await task.findByIdAndUpdate(req.body.taskId, {
+            completed: req.body.completed,
+        });
+        console.log("updated task", updateTask)
+        res.send(updateTask);
     } catch (error) {
         console.log("Cannot update task, returning error:", error);
         res.send(error)
@@ -53,33 +91,13 @@ router.post('/deleteTask', checkRecordId, async (req, res, next) => {
 
     //use mongoose to delete
     try {
+        console.log("Deleting task, returing object id:", req.body);
         const deleteTask = await task.findByIdAndDelete(req.body.taskId);
+        res.send(deleteTask);
     } catch (error) {
         console.log("Cannot delete task, returning error:", error);
         res.send(error)
     }
 });
 
-async function checkRecordId(req, res, next) {
-    //secuirty check
-    if (mongoose.Types.ObjectId.isValid(req.body.taskId)) {
-        try {
-            const checkExistance = await task.exists({_id: req.body.taskId});
-            return next();
-        } catch (error) {
-            console.log("Cannot check record id, returning error:", error);
-        }
-    } else {
-        res.send("not a object id");
-    }
-}
-
-function checkRequestData(req, res, next) {
-    // implement security check in the future
-    let security_check = true;
-    if (security_check) {
-        return next();
-    } else {
-        res.send("request body fail to pass security check");
-    }
-}
+module.exports = router;
