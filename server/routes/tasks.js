@@ -66,7 +66,7 @@ router.post('/addTask', checkRequestData, async (req, res, next) => {
 });
 
 //update status of a task
-router.post('/updateTask', checkRecordId, checkRequestData, async (req, res, next) => {
+router.patch('/updateTask', checkRecordId, checkRequestData, async (req, res, next) => {
     //check if record exists in db
 
     //if yes then check on data
@@ -86,7 +86,7 @@ router.post('/updateTask', checkRecordId, checkRequestData, async (req, res, nex
 });
 
 //delete task
-router.post('/deleteTask', checkRecordId, async (req, res, next) => {
+router.delete('/deleteTask', checkRecordId, async (req, res, next) => {
     //check if record exists
 
     //use mongoose to delete
