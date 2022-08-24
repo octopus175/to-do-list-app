@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import ToDoList from './components/ToDoList.js'
 import Header from './components/Header.js';
 import CreateNewItem from "./components/CreateNewItem.js";
-import {getTasks, addTask, deleteTask} from './services/taskServices.js';
+import {getTasks, addTask, deleteTask, updateTask} from './services/taskServices.js';
 
 
 function App() {
@@ -36,10 +36,22 @@ function App() {
     }
   }
 
-  const completeTaskItem = (taskId) => {
-    const newItemArr = [...items];
-    newItemArr[taskId].isCompleted = true;
-    setItems(newItemArr);
+  const completeTaskItem = async(taskIndex, _id) => {
+    const updatedItem = items[taskIndex];
+    updatedItem.completed = true;
+    try {
+      const result = await updateTask(updatedItem);
+      if (result.data._id === _id) {
+        const newItemArr = [...items];
+        newItemArr[taskIndex].completed = true;
+        setItems(newItemArr);
+      } else {
+        console.log("return task id does not match");
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   useEffect(() => {

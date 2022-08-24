@@ -7,9 +7,10 @@ const router = express.Router();
 
 const checkRecordId = async(req, res, next) =>  {
     //secuirty check
-    if (mongoose.Types.ObjectId.isValid(req.body.taskId)) {
+    const id = req.body._id || req.query.task_id;
+    if (mongoose.Types.ObjectId.isValid(id)) {
         try {
-            const checkExistance = await task.exists({_id: req.body.taskId});
+            const checkExistance = await task.exists({_id: id});
             if (checkExistance) {
                 return next();
             } else {
@@ -72,7 +73,8 @@ router.patch('/updateTask', checkRecordId, checkRequestData, async (req, res, ne
 
     //use mongoose to update
     try {
-        const updateTask = await task.findByIdAndUpdate(req.body.taskId, {
+        console.log("trying to update task, returning request body:", req.body);
+        const updateTask = await task.findByIdAndUpdate(req.body._id, {
             completed: req.body.completed,
         });
         console.log("updated task", updateTask)
@@ -85,7 +87,7 @@ router.patch('/updateTask', checkRecordId, checkRequestData, async (req, res, ne
 });
 
 //delete task
-router.delete('/deleteTask', async (req, res, next) => {
+router.delete('/deleteTask', checkRecordId, async (req, res, next) => {
     //check if record exists
 
     //use mongoose to delete
