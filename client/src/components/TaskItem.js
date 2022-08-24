@@ -6,7 +6,7 @@ function TaskItem({taskItem, taskId, deleteTaskItem, completeTaskItem}) {
 
     return(
         <>
-            <span className='task-name' style={{ textDecoration: taskItem.isCompleted ? "line-through" : "" }}>{taskItem.task_name}</span>
+            <span className='task-name' style={{ textDecoration: taskItem.completed ? "line-through" : "" }}>{taskItem.task_name}</span>
             {taskItem.completed ? (<span className='task-status'>Complete</span>):(<span className='task-status'>In progess</span>)}
             <span className='task-deadline'>{deadline}</span>
             <div className='action-selector'>
