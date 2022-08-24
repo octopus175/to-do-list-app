@@ -1,6 +1,6 @@
 import '../style/TaskItem.css'
 
-function TaskItem({taskItem, taskId, deleteTaskItem, completeTaskItem}) {
+function TaskItem({taskItem, taskIndex, deleteTaskItem, completeTaskItem}) {
 
     const deadline = taskItem.deadline.replace('T',' ').replace('Z',' ').split('.')[0];
 
@@ -10,9 +10,9 @@ function TaskItem({taskItem, taskId, deleteTaskItem, completeTaskItem}) {
             {taskItem.completed ? (<span className='task-status'>Complete</span>):(<span className='task-status'>In progess</span>)}
             <span className='task-deadline'>{deadline}</span>
             <div className='action-selector'>
-                <button className="complete-button" onClick={() => completeTaskItem(taskId)}>Complete</button>
+                <button className="complete-button" onClick={() => completeTaskItem(taskIndex, taskItem._id)}>Complete</button>
                 <button className='delete-button'>
-                    <i className="bi bi-trash3" onClick={() => deleteTaskItem(taskId)}></i>
+                    <i className="bi bi-trash3" onClick={() => deleteTaskItem(taskIndex, taskItem._id)}></i>
                 </button>
             </div>
         </>

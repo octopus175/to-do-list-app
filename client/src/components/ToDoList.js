@@ -27,7 +27,7 @@ function ToDoList ({deleteTaskItem, completeTaskItem, items}){
             {
                 transitions((style, item, _t, index) => (
                     <animated.div style={style}  className="item-container">
-                        {item && (<TaskItem transitionStyle={style} taskItem={item} key={index} taskId={index} completeTaskItem={completeTaskItem} deleteTaskItem={deleteTaskItem}/>)}
+                        {item && (<TaskItem transitionStyle={style} taskItem={item} key={index} taskIndex={index} completeTaskItem={completeTaskItem} deleteTaskItem={deleteTaskItem}/>)}
                     </animated.div>
                 ))
             }

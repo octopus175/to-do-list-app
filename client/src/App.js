@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import ToDoList from './components/ToDoList.js'
 import Header from './components/Header.js';
 import CreateNewItem from "./components/CreateNewItem.js";
-import {getTasks, addTask} from './services/taskServices.js';
+import {getTasks, addTask, deleteTask} from './services/taskServices.js';
 
 
 function App() {
@@ -11,7 +11,6 @@ function App() {
 
   const insertNewItem = async(newTaskName, newTaskDeadline) => {
       const newItem = {task_name: newTaskName, deadline: newTaskDeadline};
-      console.log("checking datetime format:", newTaskDeadline);
       try {
         const result = await addTask(newItem);
         setItems(itemArr => itemArr.concat(result.data));
@@ -20,10 +19,21 @@ function App() {
       }
   }
 
-  const deleteTaskItem = (taskId) => {
-      const newItemArr = [...items];
-      newItemArr.splice(taskId, 1);
-      setItems(newItemArr);
+  const deleteTaskItem = async(taskIndex, _id) => {
+    const taskId = _id;
+    try {
+      const result = await deleteTask(taskId);
+      if (result.data._id === items[taskIndex]._id) {
+        const newItemArr = [...items];
+        newItemArr.splice(taskIndex, 1);
+        setItems(newItemArr);
+      } else {
+        console.error("error in deleting item, returing item does not match target item", result.data);
+      }
+      
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const completeTaskItem = (taskId) => {
@@ -37,13 +47,11 @@ function App() {
       try {
         const result = await getTasks();
         setItems(result.data);
-        console.log("returing result:", result.data);
       } catch (error) {
         console.log(error)
       }
     }
 
-    console.log("running useEffect")
     getTaskItems()
   }, [setItems]);
 

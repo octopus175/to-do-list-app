@@ -2,7 +2,6 @@ import axios from 'axios';
 const api_url = "http://127.0.0.1:4000/api/tasks/";
 
 export function getTasks() {
-    console.log("getting items")
     return axios.get(api_url.concat("getTasks"));
 }
 
@@ -15,5 +14,7 @@ export function updateTask(task) {
 }
 
 export function deleteTask(taskId) {
-    return axios.delete(api_url.concat("deleteTask"), taskId);
+    return axios.delete(api_url.concat("deleteTask"), {params: {
+        task_id: taskId
+    }});
 }

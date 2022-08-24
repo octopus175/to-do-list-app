@@ -7,7 +7,6 @@ const router = express.Router();
 
 const checkRecordId = async(req, res, next) =>  {
     //secuirty check
-    
     if (mongoose.Types.ObjectId.isValid(req.body.taskId)) {
         try {
             const checkExistance = await task.exists({_id: req.body.taskId});
@@ -86,13 +85,13 @@ router.patch('/updateTask', checkRecordId, checkRequestData, async (req, res, ne
 });
 
 //delete task
-router.delete('/deleteTask', checkRecordId, async (req, res, next) => {
+router.delete('/deleteTask', async (req, res, next) => {
     //check if record exists
 
     //use mongoose to delete
     try {
-        console.log("Deleting task, returing object id:", req.body);
-        const deleteTask = await task.findByIdAndDelete(req.body.taskId);
+        console.log("trying to delete item, returning task id:", req.query.task_id);
+        const deleteTask = await task.findByIdAndDelete(req.query.task_id);
         res.send(deleteTask);
     } catch (error) {
         console.log("Cannot delete task, returning error:", error);
