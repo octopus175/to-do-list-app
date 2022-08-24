@@ -2,7 +2,7 @@ import '../style/TaskItem.css'
 
 function TaskItem({taskItem, taskId, deleteTaskItem, completeTaskItem}) {
 
-    const deadline = taskItem.deadline.replace('T',' ').replace('Z',' ');
+    const deadline = taskItem.deadline.replace('T',' ').replace('Z',' ').split('.')[0];
 
     return(
         <>

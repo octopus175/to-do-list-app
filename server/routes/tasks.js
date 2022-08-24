@@ -57,7 +57,7 @@ router.post('/addTask', checkRequestData, async (req, res, next) => {
     try {
         console.log("Creating new task, returning attribute:", req.body);
         const newTask = await new task(req.body).save();
-        res.send(newTask._id);
+        res.send(newTask);
     } catch (error) {
         console.log("Cannot create new task, returning error:", error);
         res.send(error);

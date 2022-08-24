@@ -3,15 +3,21 @@ import React, {useEffect, useState} from "react";
 import ToDoList from './components/ToDoList.js'
 import Header from './components/Header.js';
 import CreateNewItem from "./components/CreateNewItem.js";
-import {getTasks} from './services/taskServices.js';
+import {getTasks, addTask} from './services/taskServices.js';
 
 
 function App() {
   const [items, setItems] = useState([])
 
-  const insertNewItem = (newTaskName, newTaskDeadline) => {
-      const newItem = {name: newTaskName, deadline: newTaskDeadline, isCompleted: false};
-      setItems(itemArr => itemArr.concat(newItem));
+  const insertNewItem = async(newTaskName, newTaskDeadline) => {
+      const newItem = {task_name: newTaskName, deadline: newTaskDeadline};
+      console.log("checking datetime format:", newTaskDeadline);
+      try {
+        const result = await addTask(newItem);
+        setItems(itemArr => itemArr.concat(result.data));
+      } catch (error) {
+        console.log(error)
+      }
   }
 
   const deleteTaskItem = (taskId) => {
