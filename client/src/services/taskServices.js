@@ -1,5 +1,5 @@
 import axios from 'axios';
-const api_url = process.env.REACT_APP_TASK_SERVICE_URI;
+const api_url = process.env.REACT_APP_TASK_SERVICE_URI || "http://127.0.0.1:4000/api/tasks/"
 
 export function getTasks() {
     return axios.get(api_url.concat("getTasks"));
