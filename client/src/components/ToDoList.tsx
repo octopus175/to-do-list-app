@@ -1,11 +1,22 @@
 import '../style/ToDoList.css';
 import TaskItem from "./TaskItem";
 import {animated, useTransition} from 'react-spring';
+import {ObjectId} from 'mongodb';
+
+type ItemType = {
+    _id: ObjectId,
+    task_name: string,
+    deadline: Date,
+    completed: boolean,
+    _v: number
+  }
+
+
 
 type ToDoListProps = {
     deleteTaskItem: Function,
     completeTaskItem: Function,
-    items: any
+    items: ItemType[]
 }
 
 const ToDoList = ({deleteTaskItem, completeTaskItem, items}: ToDoListProps):JSX.Element => {

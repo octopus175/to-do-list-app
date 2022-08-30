@@ -1,7 +1,16 @@
 import '../style/TaskItem.css'
+import {ObjectId} from 'mongodb';
+
+type ItemType = {
+    _id: ObjectId,
+    task_name: string,
+    deadline: Date,
+    completed: boolean,
+    _v: number
+  }
 
 type TaskItemProps = {
-    taskItem: any,
+    taskItem: ItemType,
     taskIndex: number,
     deleteTaskItem: Function,
     completeTaskItem: Function
@@ -9,7 +18,7 @@ type TaskItemProps = {
 
 const TaskItem = ({taskItem, taskIndex, deleteTaskItem, completeTaskItem}: TaskItemProps): JSX.Element => {
 
-    const deadline = taskItem.deadline.replace('T',' ').replace('Z',' ').split('.')[0];
+    const deadline = taskItem.deadline.toString().replace('T',' ').replace('Z',' ').split('.')[0];
 
     return(
         <>
