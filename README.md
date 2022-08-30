@@ -1,7 +1,7 @@
 # To Do List App
 
 ## Introduction
-Hi, welcome to the documentation of my personal project "To Do List App", it is an application built with MERN stack (MongoDB, ExpressJS, ReactJS and NodeJS). Here, you can create a to-do list to remind yourself to finish those uncompleted tasks. This site is still in the process of development, you are more than welcome to try the demo and give me feedback!
+Hi, welcome to the documentation of my personal project "To Do List App", it is an application built with MERN stack (MongoDB, ExpressJS, ReactJS and NodeJS). I created this website so that I can use a to-do list to remind myself of those uncompleted tasks. This site is still in the process of development, you are more than welcome to try the demo and give me feedback! **Feel free to give me more tasks if your want to.**
 
 Link to demo: https://steady-tiramisu-94515d.netlify.app/
 
