@@ -2,15 +2,19 @@ import { useState } from "react";
 import '../style/CreateNewItem.css';
 import Button from 'react-bootstrap/Button';
 
-function CreateNewItem({insertNewItem}){
+type CreateNewItemProps = {
+    insertNewItem: Function
+}
+
+const CreateNewItem = ({insertNewItem}: CreateNewItemProps): JSX.Element =>{
     const [taskName, setTaskName] = useState('');
     const [taskDeadline, setTaskDeadline] = useState('');
 
-    const onTaskNameChange = e => {
+    const onTaskNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTaskName(e.target.value);
     }
     
-    const onTaskDeadlineChange = e => {
+    const onTaskDeadlineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target['validity'].valid) return;
         setTaskDeadline(e.target['value']);
     }

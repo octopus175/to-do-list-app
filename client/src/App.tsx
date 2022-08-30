@@ -1,15 +1,25 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import ToDoList from './components/ToDoList.js'
-import Header from './components/Header.js';
-import CreateNewItem from "./components/CreateNewItem.js";
-import {getTasks, addTask, deleteTask, updateTask} from './services/taskServices.js';
+import ToDoList from './components/ToDoList'
+import Header from './components/Header';
+import CreateNewItem from "./components/CreateNewItem";
+import {ObjectId} from 'mongodb';
+// @ts-ignore
+import {getTasks, addTask, deleteTask, updateTask} from './services/taskServices';
 
+
+type ItemType = {
+  _id: ObjectId,
+  task_name: string,
+  deadline: Date,
+  completed: boolean,
+  _v: number
+}
 
 function App() {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState<ItemType[]>([])
 
-  const insertNewItem = async(newTaskName, newTaskDeadline) => {
+  const insertNewItem = async(newTaskName: string, newTaskDeadline: Date) => {
       const newItem = {task_name: newTaskName, deadline: newTaskDeadline};
       try {
         const result = await addTask(newItem);
@@ -19,7 +29,7 @@ function App() {
       }
   }
 
-  const deleteTaskItem = async(taskIndex, _id) => {
+  const deleteTaskItem = async(taskIndex: number, _id: string) => {
     const taskId = _id;
     try {
       const result = await deleteTask(taskId);
@@ -36,7 +46,7 @@ function App() {
     }
   }
 
-  const completeTaskItem = async(taskIndex, _id) => {
+  const completeTaskItem = async(taskIndex: number, _id: string) => {
     const updatedItem = items[taskIndex];
     updatedItem.completed = true;
     try {
@@ -73,7 +83,7 @@ function App() {
     <div className="App">
       <Header />
       <CreateNewItem insertNewItem= {insertNewItem}/>
-      {<ToDoList insertNewItem={insertNewItem} deleteTaskItem={deleteTaskItem} completeTaskItem={completeTaskItem} items={items}/>}
+      {<ToDoList deleteTaskItem={deleteTaskItem} completeTaskItem={completeTaskItem} items={items}/>}
     </div>
   );
 }

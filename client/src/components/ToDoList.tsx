@@ -1,8 +1,14 @@
 import '../style/ToDoList.css';
-import TaskItem from "./TaskItem.js";
+import TaskItem from "./TaskItem";
 import {animated, useTransition} from 'react-spring';
 
-function ToDoList ({deleteTaskItem, completeTaskItem, items}){
+type ToDoListProps = {
+    deleteTaskItem: Function,
+    completeTaskItem: Function,
+    items: any
+}
+
+const ToDoList = ({deleteTaskItem, completeTaskItem, items}: ToDoListProps):JSX.Element => {
 
     const transitions = useTransition(items,{
         from: { opacity: 0 },
@@ -27,7 +33,7 @@ function ToDoList ({deleteTaskItem, completeTaskItem, items}){
             {
                 transitions((style, item, _t, index) => (
                     <animated.div style={style}  className="item-container">
-                        {item && (<TaskItem transitionStyle={style} taskItem={item} key={index} taskIndex={index} completeTaskItem={completeTaskItem} deleteTaskItem={deleteTaskItem}/>)}
+                        {item && (<TaskItem taskItem={item} key={index} taskIndex={index} completeTaskItem={completeTaskItem} deleteTaskItem={deleteTaskItem}/>)}
                     </animated.div>
                 ))
             }

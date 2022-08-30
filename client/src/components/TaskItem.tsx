@@ -1,6 +1,13 @@
 import '../style/TaskItem.css'
 
-function TaskItem({taskItem, taskIndex, deleteTaskItem, completeTaskItem}) {
+type TaskItemProps = {
+    taskItem: any,
+    taskIndex: number,
+    deleteTaskItem: Function,
+    completeTaskItem: Function
+}
+
+const TaskItem = ({taskItem, taskIndex, deleteTaskItem, completeTaskItem}: TaskItemProps): JSX.Element => {
 
     const deadline = taskItem.deadline.replace('T',' ').replace('Z',' ').split('.')[0];
 
